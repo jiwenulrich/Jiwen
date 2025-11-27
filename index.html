@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="孙姑娘茶源有限责任公司招聘">
+    <meta name="theme-color" content="#4a6b57">
+    <link rel="apple-touch-icon" href="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/aabd868dc94b4d4896d3b5674900a565~tplv-a9rns2rl98-image.image?rcl=202511271450213E1B2EDDA7B6245BACB0&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1766818251&x-signature=PeJ3qFAFP2o2ndfxIOr7AuLoo0M%3D">
+    <title>孙姑娘茶源有限责任公司 - 茶叶销售精英招聘</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 轻量级动画库 -->
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4a6b57',
+                        secondary: '#d4a55b',
+                        light: '#f8f5f0',
+                        dark: '#2c3e2f',
+                    },
+                    fontFamily: {
+                        sans: ['PingFang SC', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            }
+            .transition-all-300 {
+                transition: all 0.3s ease;
+            }
+            .bg-blur {
+                backdrop-filter: blur(8px);
+            }
+        }
+        
+        /* Custom styles */
+        body {
+            background-color: #f8f5f0;
+            color: #333;
+            font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        .hero-section {
+            background-image: linear-gradient(rgba(74, 107, 87, 0.7), rgba(74, 107, 87, 0.7)), url('https://p11-doubao-search-sign.byteimg.com/labis/image/bf7d41bcd3cfaaa74e48f69447bab891~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&x-expires=1779778232&x-signature=5SwLHk1M15lARX47LtfgrZ0S8Bg%3D');
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            /* 防止iOS上的视差滚动问题 */
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* H5特定样式 */
+        .h5-safe-area {
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+        }
+        
+        /* 自定义滚动条 */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #4a6b57;
+            border-radius: 3px;
+        }
+        
+        /* 点击高亮效果 */
+        .touch-active {
+            -webkit-tap-highlight-color: rgba(74, 107, 87, 0.3);
+        }
+        
+        /* 禁用长按菜单 */
+        .no-context-menu {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        
+        .section-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            color: #4a6b57;
+            font-size: 24px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2);
+        }
+        
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -25%;
+            width: 50%;
+            height: 2px;
+            background-color: #4a6b57;
+        }
+        
+        .process-step:last-child::after {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .process-step::after {
+                display: none;
+            }
+        }
+        
+        .form-input:focus {
+            border-color: #4a6b57;
+            box-shadow: 0 0 0 3px rgba(74, 107, 87, 0.2);
+        }
+        
+        .leaf-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .tea-culture-bg {
+            background-image: url('https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/aabd868dc94b4d4896d3b5674900a565~tplv-a9rns2rl98-image.image?rcl=202511271450213E1B2EDDA7B6245BACB0&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1766818251&x-signature=PeJ3qFAFP2o2ndfxIOr7AuLoo0M%3D');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: right bottom;
+            background-blend-mode: overlay;
+        }
+        
+        .sales-team-img {
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="touch-active no-context-menu">
+    <div class="container mx-auto px-4 pb-10 max-w-4xl h5-safe-area">
+        <!-- 顶部导航 -->
+        <header class="fixed top-0 left-0 right-0 bg-primary text-white z-50 shadow-md h5-safe-area">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-leaf text-xl"></i>
+                        <span class="text-lg font-bold">孙姑娘茶源有限责任公司2</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <button id="shareBtn" class="p-2 rounded-full hover:bg-opacity-20 hover:bg-white transition-all-300 touch-active">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <main class="pt-16">
+            <!-- 英雄区域 -->
+            <section class="hero-section h-[60vh] flex flex-col justify-center items-center text-white text-center px-4 animate-fade-in-up">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-shadow">诚聘茶叶销售精英</h1>
+                <p class="text-xl mb-8 max-w-lg text-shadow">加入我们，传承千年茶文化，共创美好事业</p>
+                <button id="applyNowBtn" class="bg-secondary hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all-300 transform hover:-translate-y-1 touch-active">
+                    立即申请
+                </button>
+            </section>
+            
+            <!-- 职位概览 -->
+            <section class="py-12 px-4 animate-fade-in-up">
+                <div class="section-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-8 text-center">职位概览</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="feature-card bg-light p-4 rounded-lg flex items-center hover:bg-opacity-80 transition-all-300">
+                            <i class="fas fa-map-marker-alt feature-icon mr-4"></i>
+                            <span>工作地点：安徽省黄山市</span>
+                        </div>
+                        <div class="feature-card bg-light p-4 rounded-lg flex items-center hover:bg-opacity-80 transition-all-300">
+                            <i class="fas fa-dollar-sign feature-icon mr-4"></i>
+                            <span>薪资：底薪4-8k+高额提成+全勤奖</span>
+                        </div>
+                        <div class="feature-card bg-light p-4 rounded-lg flex items-center hover:bg-opacity-80 transition-all-300">
+                            <i class="fas fa-briefcase feature-icon mr-4"></i>
+                            <span>经验：市场营销专业方向（有经验者优先）</span>
+                        </div>
+                        <div class="feature-card bg-light p-4 rounded-lg flex items-center hover:bg-opacity-80 transition-all-300">
+                            <i class="fas fa-graduation-cap feature-icon mr-4"></i>
+                            <span>学历：高中及以上</span>
+                        </div>
+                        <div class="feature-card bg-light p-4 rounded-lg flex items-center hover:bg-opacity-80 transition-all-300">
+                            <i class="fas fa-users feature-icon mr-4"></i>
+                            <span>团队：专业销售团队</span>
+                        </div>
+                        <div class="feature-card bg-light p-4 rounded-lg flex items-center hover:bg-opacity-80 transition-all-300">
+                            <i class="fas fa-chart-line feature-icon mr-4"></i>
+                            <span>晋升：清晰的职业发展路径</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 职位详情 -->
+            <section class="py-6 px-4 animate-fade-in-up delay-100">
+                <div class="section-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-8 text-center">职位详情</h2>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-primary mb-4 border-l-4 border-secondary pl-3">岗位职责</h3>
+                        <ul class="space-y-2 pl-5">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>负责公司茶叶产品的销售与推广</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>开发新客户，维护老客户关系</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>完成公司制定的销售目标</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>收集市场信息，反馈客户需求</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>参与公司组织的销售培训和茶文化活动</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-primary mb-4 border-l-4 border-secondary pl-3">任职要求</h3>
+                        <ul class="space-y-2 pl-5">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>热爱茶叶，对茶文化有浓厚兴趣</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>具备良好的沟通能力和销售技巧</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>有责任心，积极主动，抗压能力强，有团队合作精神</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>有销售经验者优先考虑</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>能适应弹性工作时间和一定程度的出差</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary mb-4 border-l-4 border-secondary pl-3">薪资福利</h3>
+                        <ul class="space-y-2 pl-5">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>具有竞争力的底薪+高额销售提成</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>完善的五险一金保障</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>双休，带薪年假和各类法定假期</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>专业的茶叶知识和销售技巧培训</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>定期团队建设和文化活动</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>广阔的职业发展空间和晋升机会</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 公司文化 -->
+            <section class="py-6 px-4 animate-fade-in-up delay-200">
+                <div class="section-card p-6 md:p-8 tea-culture-bg">
+                    <h2 class="text-2xl font-bold text-primary mb-8 text-center">公司文化</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex flex-col items-center text-center p-4 bg-white bg-opacity-80 rounded-lg shadow-sm hover:shadow-md transition-all-300">
+                            <div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mb-4">
+                                <i class="fas fa-heart text-primary text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-primary mb-2">热爱茶文化</h3>
+                            <p class="text-gray-600">传承千年茶道，弘扬中华文化，让更多人了解和喜爱茶文化</p>
+                        </div>
+                        
+                        <div class="flex flex-col items-center text-center p-4 bg-white bg-opacity-80 rounded-lg shadow-sm hover:shadow-md transition-all-300">
+                            <div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mb-4">
+                                <i class="fas fa-handshake text-primary text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-primary mb-2">诚信经营</h3>
+                            <p class="text-gray-600">品质为本，诚信为魂，以真诚的态度对待每一位客户</p>
+                        </div>
+                        
+                        <div class="flex flex-col items-center text-center p-4 bg-white bg-opacity-80 rounded-lg shadow-sm hover:shadow-md transition-all-300">
+                            <div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mb-4">
+                                <i class="fas fa-users text-primary text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-primary mb-2">团队协作</h3>
+                            <p class="text-gray-600">互帮互助，共同成长，打造高效协作的专业团队</p>
+                        </div>
+                        
+                        <div class="flex flex-col items-center text-center p-4 bg-white bg-opacity-80 rounded-lg shadow-sm hover:shadow-md transition-all-300">
+                            <div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mb-4">
+                                <i class="fas fa-rocket text-primary text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-primary mb-2">创新发展</h3>
+                            <p class="text-gray-600">传统与现代结合，不断创新，引领茶叶行业新发展</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/53df7b728b5d4a25a9c366223712fa1d~tplv-a9rns2rl98-image.image?rcl=202511271450213E1B2EDDA7B6245BACB0&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1766818251&x-signature=S%2Bfr5odbx%2F9Mmp6F4d9O%2BfWiDCc%3D" alt="销售团队工作场景" class="sales-team-img mx-auto max-w-full md:max-w-lg rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 茶文化展示 -->
+            <section class="py-6 px-4 animate-fade-in-up delay-300">
+                <div class="section-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-8 text-center">茶文化展示</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-all-300">
+                            <img src="https://p3-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/912686048014631134~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&x-expires=1779778232&x-signature=3dNEQDbmUYQw7v7qYC%2B4NFlP9EI%3D" alt="茶叶特写" class="w-full h-48 object-cover transition-transform duration-500 hover:scale-110">
+                            <div class="p-4 bg-white">
+                                <h3 class="font-semibold text-primary">精选茶叶</h3>
+                                <p class="text-sm text-gray-600">我们提供多种优质茶叶，满足不同客户的需求</p>
+                            </div>
+                        </div>
+                        
+                        <div class="overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-all-300">
+                            <img src="https://p3-doubao-search-sign.byteimg.com/labis/c1b4ce738af165b7247627b2d5ff44e1~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&x-expires=1779778232&x-signature=Xnvsc1raWPSiu9p6h5hLX%2FX42po%3D" alt="茶艺表演" class="w-full h-48 object-cover transition-transform duration-500 hover:scale-110">
+                            <div class="p-4 bg-white">
+                                <h3 class="font-semibold text-primary">茶艺表演</h3>
+                                <p class="text-sm text-gray-600">专业茶艺师展示传统茶道，传播茶文化精髓</p>
+                            </div>
+                        </div>
+                        
+                        <div class="overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-all-300">
+                            <img src="https://p11-doubao-search-sign.byteimg.com/labis/image/8efebbde389f2b1acb874bdab20d99c1~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&x-expires=1779778232&x-signature=Oj3mBlkbz%2F8ng9krjNe7YkpRcJ0%3D" alt="茶园风光" class="w-full h-48 object-cover transition-transform duration-500 hover:scale-110">
+                            <div class="p-4 bg-white">
+                                <h3 class="font-semibold text-primary">生态茶园</h3>
+                                <p class="text-sm text-gray-600">我们的茶叶来自高海拔生态茶园，品质保证</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 应聘流程 -->
+            <section class="py-6 px-4 animate-fade-in-up delay-400">
+                <div class="section-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-8 text-center">应聘流程</h2>
+                    
+                    <div class="flex flex-wrap justify-between relative">
+                        <div class="process-step w-full md:w-1/4 mb-6 md:mb-0 text-center relative animate-fade-in-up delay-100">
+                            <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center mx-auto mb-4 shadow-md">
+                                <span class="font-bold">1</span>
+                            </div>
+                            <h3 class="font-semibold text-primary mb-2">提交申请</h3>
+                            <p class="text-sm text-gray-600">填写在线申请表单，提交个人信息</p>
+                        </div>
+                        
+                        <div class="process-step w-full md:w-1/4 mb-6 md:mb-0 text-center relative animate-fade-in-up delay-200">
+                            <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center mx-auto mb-4 shadow-md">
+                                <span class="font-bold">2</span>
+                            </div>
+                            <h3 class="font-semibold text-primary mb-2">简历筛选</h3>
+                            <p class="text-sm text-gray-600">HR团队对简历进行初步筛选和评估</p>
+                        </div>
+                        
+                        <div class="process-step w-full md:w-1/4 mb-6 md:mb-0 text-center relative animate-fade-in-up delay-300">
+                            <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center mx-auto mb-4 shadow-md">
+                                <span class="font-bold">3</span>
+                            </div>
+                            <h3 class="font-semibold text-primary mb-2">初试面试</h3>
+                            <p class="text-sm text-gray-600">通过电话或视频进行初步面试</p>
+                        </div>
+                        
+                        <div class="process-step w-full md:w-1/4 text-center relative animate-fade-in-up delay-400">
+                            <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center mx-auto mb-4 shadow-md">
+                                <span class="font-bold">4</span>
+                            </div>
+                            <h3 class="font-semibold text-primary mb-2">录用通知</h3>
+                            <p class="text-sm text-gray-600">通过面试后，发放录用通知并安排入职</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 智能职位匹配 -->
+            <section class="py-6 px-4 animate-fade-in-up delay-500">
+                <div class="section-card p-6 md:p-8 bg-gradient-to-r from-primary to-dark text-white">
+                    <h2 class="text-2xl font-bold mb-6 text-center">智能职位匹配</h2>
+                    <p class="text-center mb-8">根据您的经验和意向城市，我们将为您推荐最适合的职位</p>
+                    
+                    <div class="max-w-md mx-auto">
+                        <div class="mb-4">
+                            <label for="exp-years" class="block mb-2 text-sm font-medium">相关工作经验（年）</label>
+                            <input type="range" id="exp-years" min="0" max="10" value="0" class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer accent-secondary">
+                            <div class="flex justify-between text-xs mt-1">
+                                <span>0年</span>
+                                <span>10年+</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="city-pref" class="block mb-2 text-sm font-medium">意向工作城市</label>
+                            <select id="city-pref" class="bg-white text-gray-800 w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-secondary">
+                                <option value="all">黄山</option>
+                                
+                            </select>
+                        </div>
+                        
+                        <button id="matchBtn" class="w-full bg-secondary hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-md transition-all-300 touch-active">
+                            查看匹配职位
+                        </button>
+                    </div>
+                    
+                    <div id="match-result" class="mt-6 p-4 bg-white bg-opacity-10 rounded-lg hidden">
+                        <h3 class="font-semibold mb-2">为您推荐的职位</h3>
+                        <div id="job-match-content" class="text-sm">
+                            <!-- 匹配结果将在这里显示 -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 申请表单 -->
+            <section class="py-6 px-4 mb-8 animate-fade-in-up delay-600" id="applicationForm">
+                <div class="section-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-6 text-center">申请职位</h2>
+                    
+                    <form id="jobApplicationForm" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="name" class="block mb-1 text-sm font-medium text-gray-700">姓名 <span class="text-red-500">*</span></label>
+                                <input type="text" id="name" name="name" required class="form-input w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            
+                            <div>
+                                <label for="phone" class="block mb-1 text-sm font-medium text-gray-700">联系电话 <span class="text-red-500">*</span></label>
+                                <input type="tel" id="phone" name="phone" required class="form-input w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block mb-1 text-sm font-medium text-gray-700">电子邮箱 <span class="text-red-500">*</span></label>
+                            <input type="email" id="email" name="email" required class="form-input w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        
+                        <div>
+                            <label for="city" class="block mb-1 text-sm font-medium text-gray-700">意向工作城市 <span class="text-red-500">*</span></label>
+                            <select id="city" name="city" required class="form-input w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                <option value="">黄山</option>
+                                
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="experience" class="block mb-1 text-sm font-medium text-gray-700">相关工作经验（年）</label>
+                            <input type="number" id="experience" name="experience" min="0" max="50" class="form-input w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block mb-1 text-sm font-medium text-gray-700">个人简介/申请理由</label>
+                            <textarea id="message" name="message" rows="4" placeholder="请简要介绍自己及申请理由..." class="form-input w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                        </div>
+                        
+                        <div class="pt-2">
+                            <button type="submit" id="submitBtn" class="w-full bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-4 rounded-md transition-all-300 flex items-center justify-center touch-active">
+                                <span>提交申请</span>
+                                <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+        
+        <!-- 页脚 -->
+        <footer class="bg-dark text-white py-8 px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-6">
+                    <div class="mb-4 md:mb-0">
+                        <div class="flex items-center">
+                            <i class="fas fa-leaf text-secondary text-2xl mr-2"></i>
+                            <span class="text-xl font-bold">孙姑娘茶源有限责任公司</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-secondary transition-all-300">
+                            <i class="fab fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-secondary transition-all-300">
+                            <i class="fab fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-secondary transition-all-300">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3 text-secondary">联系我们</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-phone-alt mt-1 mr-2 text-secondary"></i>
+                                <span>招聘热线：18888</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-envelope mt-1 mr-2 text-secondary"></i>
+                                <span>招聘邮箱：hr@sgncy.com</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-2 text-secondary"></i>
+                                <span>公司地址：安徽省黄山市屯溪区西海路39号</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3 text-secondary">关于我们</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="hover:text-secondary transition-all-300">公司简介</a></li>
+                            <li><a href="#" class="hover:text-secondary transition-all-300">企业文化</a></li>
+                            <li><a href="#" class="hover:text-secondary transition-all-300">产品展示</a></li>
+                            <li><a href="#" class="hover:text-secondary transition-all-300">新闻动态</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3 text-secondary">帮助中心</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="hover:text-secondary transition-all-300">招聘流程</a></li>
+                            <li><a href="#" class="hover:text-secondary transition-all-300">常见问题</a></li>
+                            <li><a href="#" class="hover:text-secondary transition-all-300">联系方式</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="text-center text-sm text-gray-400 pt-4 border-t border-gray-700">
+                    <p>© 2023 孙姑娘茶源有限责任公司 版权所有 | 京ICP备12345678号</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- 成功提交弹窗 -->
+    <div id="successModal" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-50" id="modalOverlay"></div>
+        <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4 z-10 transform transition-all duration-300 scale-95 opacity-0" id="modalContent">
+            <div class="text-center">
+                <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-green-500 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">申请提交成功！</h3>
+                <p class="text-gray-600 mb-6">感谢您的申请，我们将尽快与您联系。</p>
+                <button id="closeModal" class="bg-primary hover:bg-opacity-90 text-white font-medium py-2 px-6 rounded-md transition-all-300 touch-active">
+                    确定
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 初始化AOS动画库
+        document.addEventListener('DOMContentLoaded', function() {
+            // 移除AOS初始化，使用自定义动画
+            
+            // 滚动到申请表单
+            const applyNowBtn = document.getElementById('applyNowBtn');
+            const applicationForm = document.getElementById('applicationForm');
+            
+            applyNowBtn.addEventListener('click', function() {
+                applicationForm.scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            });
+            
+            // 表单提交处理
+            const jobApplicationForm = document.getElementById('jobApplicationForm');
+            const successModal = document.getElementById('successModal');
+            const modalContent = document.getElementById('modalContent');
+            const modalOverlay = document.getElementById('modalOverlay');
+            const closeModal = document.getElementById('closeModal');
+            
+            jobApplicationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // 获取表单数据
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const email = document.getElementById('email').value;
+                
+                // 简单的表单验证
+                if(!name || !phone || !email) {
+                    alert('请填写必填项！');
+                    return;
+                }
+                
+                // 显示成功弹窗
+                successModal.classList.remove('hidden');
+                setTimeout(() => {
+                    modalContent.classList.remove('scale-95', 'opacity-0');
+                    modalContent.classList.add('scale-100', 'opacity-100');
+                }, 10);
+                
+                // 重置表单
+                jobApplicationForm.reset();
+            });
+            
+            // 关闭弹窗
+            function closeModalFunc() {
+                modalContent.classList.remove('scale-100', 'opacity-100');
+                modalContent.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    successModal.classList.add('hidden');
+                }, 300);
+            }
+            
+            closeModal.addEventListener('click', closeModalFunc);
+            modalOverlay.addEventListener('click', closeModalFunc);
+            
+            // 智能职位匹配功能
+            const expYears = document.getElementById('exp-years');
+            const cityPref = document.getElementById('city-pref');
+            const matchBtn = document.getElementById('matchBtn');
+            const matchResult = document.getElementById('match-result');
+            const jobMatchContent = document.getElementById('job-match-content');
+            
+            matchBtn.addEventListener('click', function() {
+                const experience = parseInt(expYears.value);
+                const city = cityPref.value;
+                
+                // 根据经验和城市生成匹配结果
+                let matchJobs = [];
+                
+                if (experience < 1) {
+                    matchJobs.push({
+                        title: '茶叶销售实习生',
+                        city: city === 'all' ? '全国' : getCityName(city),
+                        salary: '3K-5K+提成',
+                        description: '适合应届毕业生或无经验者，提供全面培训'
+                    });
+                } else if (experience < 3) {
+                    matchJobs.push({
+                        title: '初级茶叶销售顾问',
+                        city: city === 'all' ? '全国' : getCityName(city),
+                        salary: '5K-8K+提成',
+                        description: '适合有1-2年销售经验的人员'
+                    });
+                } else if (experience < 5) {
+                    matchJobs.push({
+                        title: '中级茶叶销售顾问',
+                        city: city === 'all' ? '全国' : getCityName(city),
+                        salary: '8K-12K+提成',
+                        description: '适合有3-4年销售经验的人员'
+                    });
+                } else {
+                    matchJobs.push({
+                        title: '高级茶叶销售顾问',
+                        city: city === 'all' ? '全国' : getCityName(city),
+                        salary: '12K-20K+提成',
+                        description: '适合有5年以上销售经验的人员'
+                    });
+                    
+                    matchJobs.push({
+                        title: '销售团队主管',
+                        city: city === 'all' ? '北京、上海、广州' : getCityName(city),
+                        salary: '15K-25K+团队提成',
+                        description: '适合有管理经验的资深销售人员'
+                    });
+                }
+                
+                // 显示匹配结果
+                matchResult.classList.remove('hidden');
+                
+                // 生成匹配结果HTML
+                let matchHtml = '';
+                matchJobs.forEach(job => {
+                    matchHtml += `
+                        <div class="mb-3 p-3 bg-white bg-opacity-20 rounded">
+                            <div class="flex justify-between items-center mb-1">
+                                <h4 class="font-semibold text-secondary">${job.title}</h4>
+                                <span class="text-xs bg-secondary bg-opacity-20 px-2 py-1 rounded">匹配度: 95%</span>
+                            </div>
+                            <div class="flex items-center text-xs mb-1">
+                                <i class="fas fa-map-marker-alt mr-1"></i>
+                                <span>${job.city}</span>
+                                <i class="fas fa-dollar-sign ml-3 mr-1"></i>
+                                <span>${job.salary}</span>
+                            </div>
+                            <p class="text-xs">${job.description}</p>
+                        </div>
+                    `;
+                });
+                
+                jobMatchContent.innerHTML = matchHtml;
+                
+                // 添加动画效果
+                matchResult.classList.add('animate-fade-in');
+            });
+            
+            // 获取城市名称
+            function getCityName(cityCode) {
+                const cityMap = {
+                    'beijing': '北京',
+                    'shanghai': '上海',
+                    'guangzhou': '广州',
+                    'shenzhen': '深圳',
+                    'hangzhou': '杭州',
+                    'chengdu': '成都'
+                };
+                
+                return cityMap[cityCode] || cityCode;
+            }
+            
+            // 分享功能
+            const shareBtn = document.getElementById('shareBtn');
+            
+            shareBtn.addEventListener('click', function() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: '茗香阁 - 茶叶销售精英招聘',
+                        text: '加入我们，传承千年茶文化，共创美好事业',
+                        url: window.location.href
+                    });
+                } else {
+                    // 复制链接到剪贴板
+                    navigator.clipboard.writeText(window.location.href).then(function() {
+                        alert('链接已复制到剪贴板，您可以分享给好友！');
+                    });
+                }
+            });
+            
+            // 添加滚动效果
+            const header = document.querySelector('header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('shadow-lg');
+                } else {
+                    header.classList.remove('shadow-lg');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
